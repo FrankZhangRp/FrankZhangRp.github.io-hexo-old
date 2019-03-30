@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Frank Zhang&#39;s Tech Blog</title>
+  <title>paper report: 调研self-ensembling相关文章 | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Frank Zhang&#39;s Tech Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
+<meta name="keywords" content="paper report,self-ensembling,domain adaptation,semi-supervised learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paper report: 调研self-ensembling相关文章">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
+<meta property="og:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/temporal.png">
+<meta property="og:updated_time" content="2019-03-30T07:42:35.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frank Zhang&#39;s Tech Blog">
+<meta name="twitter:title" content="paper report: 调研self-ensembling相关文章">
+<meta name="twitter:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -156,16 +164,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-paper-report-调研self-ensembling相关文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-paper-report-调研self-ensembling相关文章" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/30/paper-report-调研self-ensembling相关文章/">paper report: 调研self-ensembling相关文章</a>
+    <h1 class="article-title" itemprop="name">
+      paper report: 调研self-ensembling相关文章
     </h1>
   
 
@@ -176,6 +182,10 @@
         
         <!-- 添加代码 -->
         
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
       </header>
     
     <div class="article-entry" itemprop="articleBody">
@@ -185,9 +195,13 @@
 <li>Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results</li>
 <li>Self-ensembling for visual domain adaptation</li>
 </ul>
-        
-          <a class="article-more-a" href="/2019/03/30/paper-report-调研self-ensembling相关文章/#more">more >></a>
-        
+<a id="more"></a>
+<h3 id="Temporal-Ensembling"><a href="#Temporal-Ensembling" class="headerlink" title="Temporal Ensembling"></a>Temporal Ensembling</h3><p>这篇文章针对Semi-Supervised Learning的问题提出了在时间维度进行ensembling的方式。核心算法是在训练过程中将每个样本的预测输出在时间维度上滑动平均。</p>
+<p>之前提出的$\prod-model$模型<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png" alt="2-model"></p>
+<p>本文的temproal ensembling算法：<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/temporal.png" alt="temporal"></p>
+<hr>
+<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了</p>
+
       
 
       
@@ -221,16 +235,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/30/paper-report-调研self-ensembling相关文章/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/28/2019年技术博客计划/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">技术博客计划</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -245,105 +318,48 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019年技术博客计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/28/2019年技术博客计划/">技术博客计划</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/28/2019年技术博客计划/" class="archive-article-date">
-  	<time datetime="2019-03-28T11:47:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-28</time>
-</a>
-        
-        <!-- 添加代码 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Frank-Zhang-2019年技术博客计划"><a href="#Frank-Zhang-2019年技术博客计划" class="headerlink" title="Frank Zhang 2019年技术博客计划"></a>Frank Zhang 2019年技术博客计划</h2><p>从2019年4月1日开始每周一篇技术博客，内容包含以下一些方面：</p>
-<ul>
-<li>在github上使用hexo搭建博客并进行美化的过程记录(教程向，包括搭建，主题更改与美化)</li>
-<li>pytorch学习中的相关问题和经验总结</li>
-<li>经典论文笔记整理，CV方向，暂时细分方向为Domain Adaptation和Domain Generalizaiton</li>
-<li>Linux服务器相关知识</li>
-<li>电脑硬件的相关知识总结</li>
-<li>数码产品云评测的一些个人见解和选购意见</li>
-<li>Java和C++的语言方面的学习(较晚的时间)</li>
-</ul>
-<hr>
-<h2 id="博客文章梳理计划"><a href="#博客文章梳理计划" class="headerlink" title="博客文章梳理计划"></a>博客文章梳理计划</h2><ul>
-<li>在博文数量超过50篇后详细整理博文的分类</li>
-<li>如果阅读量较高则申请单独的域名</li>
-</ul>
-<hr>
-<h2 id="个人兴趣爱好博客"><a href="#个人兴趣爱好博客" class="headerlink" title="个人兴趣爱好博客"></a>个人兴趣爱好博客</h2><p>摄影作品，游记和旅游计划，美食攻略（成都，郑州和上海）等，不定时更新。可能会有一些摄影后期的教程向博文。<br>视频剪辑学习博文，一边学习，一边总结</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/28/2019年技术博客计划/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#paper-list："><span class="toc-number">1.</span> <span class="toc-text">paper list：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Temporal-Ensembling"><span class="toc-number">2.</span> <span class="toc-text">Temporal Ensembling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mean-Teacher"><span class="toc-number">3.</span> <span class="toc-text">Mean Teacher</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
+  
+  
+  
 
   
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'FrankZhang'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
+
   
 
 
@@ -371,8 +387,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
