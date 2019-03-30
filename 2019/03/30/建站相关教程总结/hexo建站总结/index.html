@@ -12,11 +12,11 @@
 <meta name="keywords" content="博客搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo建站总结">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/hexo建站总结/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/建站相关教程总结/hexo建站总结/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
 <meta property="og:description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T10:54:21.886Z">
+<meta property="og:updated_time" content="2019-03-30T11:34:12.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo建站总结">
 <meta name="twitter:description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
@@ -68,8 +68,6 @@
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
             
-    			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
     			
             
     			
@@ -161,7 +159,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo建站总结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-建站相关教程总结/hexo建站总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -173,7 +171,7 @@
   
 
         
-        <a href="/2019/03/30/hexo建站总结/" class="archive-article-date">
+        <a href="/2019/03/30/建站相关教程总结/hexo建站总结/" class="archive-article-date">
   	<time datetime="2019-03-30T09:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
 </a>
         
@@ -231,10 +229,10 @@
 <hr>
 <p><strong>针对文章阅读量</strong><br> 在/themes/yilia/layout/_partial/article.ejs中，添加代码:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 添加代码  --&gt;</span><br><span class="line">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">   本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- article.ejs自身代码--&gt;</span><br><span class="line">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">        本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;% &#125; %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;article-info article-info-index&quot;&gt;</span><br><span class="line">      &lt;%if(post.top)&#123;%&gt;</span><br><span class="line">        &lt;div class=&quot;article-pop-out tagcloud&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;icon-tuding&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;a class=&quot;article-tag-list-link color3&quot;&gt;置顶&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
 <p>添加一个判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- article自身代码 --&gt;</span><br><span class="line">&lt;header class=&quot;article-header&quot;&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/title&apos;, &#123;class_name: &apos;article-title&apos;&#125;) %&gt;</span><br><span class="line">        &lt;% if (!post.noDate)&#123; %&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/date&apos;, &#123;class_name: &apos;archive-article-date&apos;, date_format: null&#125;) %&gt;</span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 添加代码 --&gt;</span><br><span class="line">    &lt;% if ( !index )&#123; %&gt;</span><br><span class="line">        &lt;span class=&quot;archive-article-date&quot;&gt;</span><br><span class="line">            阅读量 &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">      &lt;/header&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="视频和音频"><a href="#视频和音频" class="headerlink" title="视频和音频"></a>视频和音频</h2><p>直接在B站和网易云生成iframe代码，注意视频框要定义尺寸，一般480x800就够了。但是B站的清晰度不是很好调。</p>
 <h2 id="下一阶段的计划"><a href="#下一阶段的计划" class="headerlink" title="下一阶段的计划"></a>下一阶段的计划</h2><p>下一步继续优化我的博客，从内容和形式上都要下手：    </p>
 <ul>
 <li>研究如何让谷歌和百度都能检索到我的网站</li>
-<li>导入b站视频api，网易云音乐api，丰富多媒体内容</li>
 <li>如果博客数量较大的时候考虑搬移到服务器上(简单方式本地服务器+内网穿透花生壳+域名解析，土豪方式直接阿里云)，但是看莫烦的python教程网站现在还是github.io，说明现在的体量没有问题。</li>
 <li>以后如果有一些视频分享，可以投B站，然后api过来。</li>
 <li>评论系统好像是disquz可以使用，没有测试。</li>
@@ -308,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/30/hexo建站总结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/30/建站相关教程总结/hexo建站总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,6 +319,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/03/30/建站相关教程总结/Github-Hexo教程-视频分享/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Github+Hexo教程 视频分享
+        
+      </div>
+    </a>
   
   
     <a href="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/" id="article-nav-older" class="article-nav-link-wrap">
@@ -351,7 +358,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何利用Github搭建博客"><span class="toc-number">1.</span> <span class="toc-text">如何利用Github搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在markdown中插入本地图片"><span class="toc-number">2.</span> <span class="toc-text">在markdown中插入本地图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名设置"><span class="toc-number">3.</span> <span class="toc-text">域名设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访客数和阅读量计算"><span class="toc-number">4.</span> <span class="toc-text">访客数和阅读量计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下一阶段的计划"><span class="toc-number">5.</span> <span class="toc-text">下一阶段的计划</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何利用Github搭建博客"><span class="toc-number">1.</span> <span class="toc-text">如何利用Github搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在markdown中插入本地图片"><span class="toc-number">2.</span> <span class="toc-text">在markdown中插入本地图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名设置"><span class="toc-number">3.</span> <span class="toc-text">域名设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访客数和阅读量计算"><span class="toc-number">4.</span> <span class="toc-text">访客数和阅读量计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#视频和音频"><span class="toc-number">5.</span> <span class="toc-text">视频和音频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下一阶段的计划"><span class="toc-number">6.</span> <span class="toc-text">下一阶段的计划</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -463,8 +470,6 @@ MathJax.Hub.Queue(function() {
       
     
       
-      
-      
     
       
       
@@ -476,15 +481,13 @@ MathJax.Hub.Queue(function() {
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -509,10 +512,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">paper report</a>
               </li>
              
@@ -526,6 +525,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">semi-supervised learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
             
             <div class="clearfix"></div>
@@ -571,18 +578,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="https://github.com/FrankZhangRp" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>My Github</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
     
 
     
