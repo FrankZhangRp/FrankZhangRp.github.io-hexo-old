@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/temporal.png">
-<meta property="og:updated_time" content="2019-03-30T07:42:35.112Z">
+<meta property="og:updated_time" content="2019-03-30T08:12:01.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper report: 调研self-ensembling相关文章">
 <meta name="twitter:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
@@ -196,11 +196,11 @@
 <li>Self-ensembling for visual domain adaptation</li>
 </ul>
 <a id="more"></a>
-<h3 id="Temporal-Ensembling"><a href="#Temporal-Ensembling" class="headerlink" title="Temporal Ensembling"></a>Temporal Ensembling</h3><p>这篇文章针对Semi-Supervised Learning的问题提出了在时间维度进行ensembling的方式。核心算法是在训练过程中将每个样本的预测输出在时间维度上滑动平均。</p>
+<h3 id="Temporal-Ensembling"><a href="#Temporal-Ensembling" class="headerlink" title="Temporal Ensembling"></a>Temporal Ensembling</h3><p>这篇文章针对Semi-Supervised Learning的问题提出了在时间维度进行ensembling的方式。核心算法是在训练过程中将每个样本的预测输出在时间维度上滑动平均。相比于$\prod-model$模型优点在于数据只用通过一次网络就可以完成训练。</p>
 <p>之前提出的$\prod-model$模型<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png" alt="2-model"></p>
 <p>本文的temproal ensembling算法：<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/temporal.png" alt="temporal"></p>
 <hr>
-<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了</p>
+<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了上一篇Temporal Ensembling的启发，但是没有对输出的预测标签进行时间上的滑动平均。Mean Teacher采用两个网络，student网络是直接使用SGD训练的网络，而teacher网络是student网络的滑动平均，两个网络使用不同的</p>
 
       
 
