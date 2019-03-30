@@ -8,20 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>paper report: 调研self-ensembling相关文章 | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
+  <meta name="description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
 <meta name="keywords" content="paper report,self-ensembling,domain adaptation,semi-supervised learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper report: 调研self-ensembling相关文章">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
-<meta property="og:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
+<meta property="og:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/temporal.png">
-<meta property="og:updated_time" content="2019-03-30T08:12:01.121Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/MeanTeacher.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/DA.png">
+<meta property="og:updated_time" content="2019-03-30T08:41:46.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper report: 调研self-ensembling相关文章">
-<meta name="twitter:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results Self-ensembling for">
+<meta name="twitter:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
 <meta name="twitter:image" content="http://yoursite.com/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png">
   
   
@@ -87,9 +89,9 @@
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-peng-27-61" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="qq" target="_blank" href="/568682044" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="https://user.qzone.qq.com/568682044/infocenter" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/zrp970724" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="https://imgchr.com/i/ABO7m6" title="weixin"><i class="icon-weixin"></i></a>
 		        
 					<a class="bilibili" target="_blank" href="https://space.bilibili.com/221089290" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
@@ -132,9 +134,9 @@
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xiao-peng-27-61" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="qq" target="_blank" href="/568682044" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="https://user.qzone.qq.com/568682044/infocenter" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/zrp970724" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="https://imgchr.com/i/ABO7m6" title="weixin"><i class="icon-weixin"></i></a>
 			        
 						<a class="bilibili" target="_blank" href="https://space.bilibili.com/221089290" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
@@ -191,16 +193,32 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="paper-list："><a href="#paper-list：" class="headerlink" title="paper list："></a>paper list：</h3><ul>
-<li>Temporal Ensembling for Semi-Supervised Learning</li>
-<li>Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results</li>
-<li>Self-ensembling for visual domain adaptation</li>
+<li><p>Temporal Ensembling for Semi-Supervised Learning</p>
+</li>
+<li><p>Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results</p>
+</li>
+<li><p>Self-ensembling for visual domain adaptation</p>
+</li>
 </ul>
 <a id="more"></a>
 <h3 id="Temporal-Ensembling"><a href="#Temporal-Ensembling" class="headerlink" title="Temporal Ensembling"></a>Temporal Ensembling</h3><p>这篇文章针对Semi-Supervised Learning的问题提出了在时间维度进行ensembling的方式。核心算法是在训练过程中将每个样本的预测输出在时间维度上滑动平均。相比于$\prod-model$模型优点在于数据只用通过一次网络就可以完成训练。</p>
 <p>之前提出的$\prod-model$模型<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/2-model.png" alt="2-model"></p>
 <p>本文的temproal ensembling算法：<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/temporal.png" alt="temporal"></p>
 <hr>
-<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了上一篇Temporal Ensembling的启发，但是没有对输出的预测标签进行时间上的滑动平均。Mean Teacher采用两个网络，student网络是直接使用SGD训练的网络，而teacher网络是student网络的滑动平均，两个网络使用不同的</p>
+<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了上一篇Temporal Ensembling的启发，但是没有对输出的预测标签进行时间上的滑动平均。Mean Teacher采用两个网络，student网络是直接使用SGD训练的网络，而teacher网络是student网络的滑动平均，两个网络使用不同的dropout，noise和输入图像的增强特征。<br>Mean Teacher的网络模型如下所示：<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/MeanTeacher.png" alt="MeanTeacher"></p>
+<hr>
+<h3 id="Self-ensembling-in-visual-domain-adaptation"><a href="#Self-ensembling-in-visual-domain-adaptation" class="headerlink" title="Self-ensembling in visual domain adaptation"></a>Self-ensembling in visual domain adaptation</h3><p>这篇文章将Mean Teacher的方法用到了unsupervised domain adaptation上，原有的方法是在semi-supervised learning的情景下提出的。</p>
+<p>本文的网络结构：<br><img src="/2019/03/30/paper-report-调研self-ensembling相关文章/DA.png" alt="DA"></p>
+<p>对source domain的数据只计算分类损失，对target domain的数据使用student和teacher两个网络的预测输出值做self-ensembling的损失(MSELoss)，但是和Mean Teacher不同的是没有采用Gaussian的ramp-up方式，而是使用一个confidence threshold的方式，如果target数据的预测标签输出小于阈值就不计算它的self-ensembling loss。</p>
+<p>由于看到USPS数据集存在class之间数据量差异大导致在训练过程的问题，提出了一个class balance loss，将每个mini-batch的预测标签求平均，和全局真实分布计算binary cross entropy loss加以惩罚，防止其向数据量多的class偏移。</p>
+<p>在Mean Teacher和Temporal Ensembling的基础上增加了数据增强的方式，random affine transformations， 直接对像素加Gaussian噪声</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这三篇文章层层推进，将self-ensembling的方式在temporal的方向上发展并引入到domain adaptation这个无监督学习的方向中，模型简单而有效。</p>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h4><ul>
+<li>[1]. S. Laine and T. Aila. Temporal Ensembling for Semi-Supervised Learning. arXiv:1610.02242 [cs], Oct. 2016.</li>
+<li>[2]. A. Tarvainen and H. Valpola. Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. In NIPS, 2017.</li>
+<li>[3]G. French, M. Mackiewicz, and M. Fisher. Self-ensembling for visual domain adaptation. In International Conference on Learning Representations, 2018.</li>
+</ul>
 
       
 
@@ -325,7 +343,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#paper-list："><span class="toc-number">1.</span> <span class="toc-text">paper list：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Temporal-Ensembling"><span class="toc-number">2.</span> <span class="toc-text">Temporal Ensembling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mean-Teacher"><span class="toc-number">3.</span> <span class="toc-text">Mean Teacher</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#paper-list："><span class="toc-number">1.</span> <span class="toc-text">paper list：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Temporal-Ensembling"><span class="toc-number">2.</span> <span class="toc-text">Temporal Ensembling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mean-Teacher"><span class="toc-number">3.</span> <span class="toc-text">Mean Teacher</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Self-ensembling-in-visual-domain-adaptation"><span class="toc-number">4.</span> <span class="toc-text">Self-ensembling in visual domain adaptation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文献"><span class="toc-number">5.1.</span> <span class="toc-text">参考文献</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -560,7 +578,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;center&gt;电子科技大学 通信工程本科&lt;br&gt; CV领域的科研dog&lt;br&gt;&lt;br&gt;做博客是为了督促自己记录总结，同时也分享一些知识和经验&lt;br&gt;&lt;br&gt;希望能给各位带来一些帮助，谢谢大家&lt;/center&gt;</div>
   	  	
     	</section>
     
