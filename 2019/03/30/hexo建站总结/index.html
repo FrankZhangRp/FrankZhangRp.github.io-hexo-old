@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
 <meta property="og:description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T10:34:24.178Z">
+<meta property="og:updated_time" content="2019-03-30T10:54:21.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo建站总结">
 <meta name="twitter:description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
@@ -226,6 +226,11 @@
 <li>在source目录下新建CNAME文件(没有扩展名)，把域名写到文件中，记事本就行</li>
 </ul>
 <p>我现在只有一年的frankzhang.tech的使用权，之后看情况再补。</p>
+<h2 id="访客数和阅读量计算"><a href="#访客数和阅读量计算" class="headerlink" title="访客数和阅读量计算"></a>访客数和阅读量计算</h2><p>使用不蒜子脚本，之前网上搜的是域名过期了，新的操作：<br><strong>针对网站访问量</strong><br>在yilia/layout/_partial目录下的footer.ejs加上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async src=&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">				&lt;span id=&quot;busuanzi_container_site_uv&quot;&gt; </span><br><span class="line">					本站访客数&lt;span id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;人次</span><br><span class="line">				&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/footer&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但是由于现在不蒜子网站无法登录初始化次数，所以先关闭访客数量</p>
+<hr>
+<p><strong>针对文章阅读量</strong><br> 在/themes/yilia/layout/_partial/article.ejs中，添加代码:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- 添加代码  --&gt;</span><br><span class="line">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">   本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;/span&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- article.ejs自身代码--&gt;</span><br><span class="line">&lt;span id=&quot;busuanzi_container_page_pv&quot;&gt;</span><br><span class="line">        本文总阅读量&lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;次</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">          &lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;% &#125; %&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;article-info article-info-index&quot;&gt;</span><br><span class="line">      &lt;%if(post.top)&#123;%&gt;</span><br><span class="line">        &lt;div class=&quot;article-pop-out tagcloud&quot;&gt;</span><br><span class="line">          &lt;i class=&quot;icon-tuding&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;a class=&quot;article-tag-list-link color3&quot;&gt;置顶&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>添加一个判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- article自身代码 --&gt;</span><br><span class="line">&lt;header class=&quot;article-header&quot;&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/title&apos;, &#123;class_name: &apos;article-title&apos;&#125;) %&gt;</span><br><span class="line">        &lt;% if (!post.noDate)&#123; %&gt;</span><br><span class="line">        &lt;%- partial(&apos;post/date&apos;, &#123;class_name: &apos;archive-article-date&apos;, date_format: null&#125;) %&gt;</span><br><span class="line">        &lt;% &#125; %&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 添加代码 --&gt;</span><br><span class="line">    &lt;% if ( !index )&#123; %&gt;</span><br><span class="line">        &lt;span class=&quot;archive-article-date&quot;&gt;</span><br><span class="line">            阅读量 &lt;span id=&quot;busuanzi_value_page_pv&quot;&gt;&lt;/span&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line">      &lt;/header&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="下一阶段的计划"><a href="#下一阶段的计划" class="headerlink" title="下一阶段的计划"></a>下一阶段的计划</h2><p>下一步继续优化我的博客，从内容和形式上都要下手：    </p>
 <ul>
 <li>研究如何让谷歌和百度都能检索到我的网站</li>
@@ -233,7 +238,6 @@
 <li>如果博客数量较大的时候考虑搬移到服务器上(简单方式本地服务器+内网穿透花生壳+域名解析，土豪方式直接阿里云)，但是看莫烦的python教程网站现在还是github.io，说明现在的体量没有问题。</li>
 <li>以后如果有一些视频分享，可以投B站，然后api过来。</li>
 <li>评论系统好像是disquz可以使用，没有测试。</li>
-<li>访客数统计和阅读量统计都没有做成功，可以研究一下</li>
 </ul>
 
       
@@ -347,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何利用Github搭建博客"><span class="toc-number">1.</span> <span class="toc-text">如何利用Github搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在markdown中插入本地图片"><span class="toc-number">2.</span> <span class="toc-text">在markdown中插入本地图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名设置"><span class="toc-number">3.</span> <span class="toc-text">域名设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下一阶段的计划"><span class="toc-number">4.</span> <span class="toc-text">下一阶段的计划</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何利用Github搭建博客"><span class="toc-number">1.</span> <span class="toc-text">如何利用Github搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在markdown中插入本地图片"><span class="toc-number">2.</span> <span class="toc-text">在markdown中插入本地图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名设置"><span class="toc-number">3.</span> <span class="toc-text">域名设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访客数和阅读量计算"><span class="toc-number">4.</span> <span class="toc-text">访客数和阅读量计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下一阶段的计划"><span class="toc-number">5.</span> <span class="toc-text">下一阶段的计划</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -392,17 +396,15 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Frank Zhang
+    		&copy; 2019年 03月 30日 Frank Zhang
     	</div>
-      	<div class="footer-right">
+      	<!-- <div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-				<span id="busuanzi_container_site_uv"> 
-					本站访客数<span id="busuanzi_value_site_uv"></span>人次
-				</span>
+				</div> -->
+				<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+				<!-- <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span> -->
     </div>
 	</div>
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </footer>
 
     </div>
