@@ -8,14 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>hexo建站总结 | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
+<meta name="keywords" content="博客搭建">
+<meta property="og:type" content="article">
 <meta property="og:title" content="hexo建站总结">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/hexo建站总结/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
+<meta property="og:description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T09:16:42.906Z">
+<meta property="og:updated_time" content="2019-03-30T10:34:24.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo建站总结">
+<meta name="twitter:description" content="如何利用Github搭建博客博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -183,7 +187,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="如何利用Github搭建博客"><a href="#如何利用Github搭建博客" class="headerlink" title="如何利用Github搭建博客"></a>如何利用Github搭建博客</h2><p>博客网站本身并不复杂，主要的功能就是文章阅读和整理，所以没有必要租云服务器或者自己搭建服务器。Github可以免费帮我们渲染静态的html文件。</p>
+<a id="more"></a>
+<p>具体的流程</p>
+<ol>
+<li>创建Github账号</li>
+<li>以账号名.github.io为名创建一个新仓库，例如username.github.io。完成之后直接访问username.github.io就可以看到默认的index.html界面了，十分方便。</li>
+<li>使用hexo框架可以将markdown文件渲染成html文件显示，所以要在本地安装hexo</li>
+<li>首先git,node.js基础支持的安装</li>
+<li>npm安装cnpm(针对国内用户，淘宝有镜像站)，使用npm或者cnpm安装Hexo</li>
+<li>新建一个文件夹，这个文件夹就是博客的全部内容存储的地方。在这个文件夹目录下打开终端或者powershell/cmd，命令hexo init初始化hexo框架</li>
+<li>初始化完成后，对_config.yml进行配置，配置git到username.github.io，这样可以在本地写完后一键部署。</li>
+<li>美化hexo，在github上找到hexo-theme-yilia框架，git clone到本地的博客文件夹下的themes文件夹中，更改配置文件的主题为yilia就搞定了。</li>
+<li>之后修改主题内的设定都在yilia文件夹内的_config.yml</li>
+<li>美化的内容有：<ul>
+<li>标签页图标</li>
+<li>个人信息和超链接</li>
+<li>头像(可以使用图床，也可以用本地文件，注意不同的地方要求本地文件存放的位置也不同)</li>
+<li>打开markdown本地插入图片功能(这里需要装npm install hexo-gene…等一些插件，用来Git部署，上传插入的本地图片等操作)</li>
+<li>打开markdown数学公式支持(LaTeX公式)</li>
+<li>规划博客页面</li>
+</ul>
+</li>
+<li>新建一个博客的操作 hexo n “名字(不需要扩展.md的名字)”</li>
+<li>之后会在source/_posts中看到这个文件，所以在_posts的html和md文件都会被渲染，可以再放到子文件夹中。</li>
+<li>文件头是作者，创建时间和标签，标签可以用markdown列表的方式来加多个标签，如果有其他的美化操作也是在这里加。有js脚本加的看教程</li>
+<li>写好后进行生成，预览，部署。注意顺序</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo clean # 用来清理缓存</span><br><span class="line">hexo g # 生成新的页面</span><br><span class="line">hexo s # 在本地localhost:4000预览</span><br><span class="line">hexo d # 部署到远程github，这里的git信息是在themes中的_config.yml中定义好的，可以选择ssh认证或者账户密码认证，或者在git bash中配置git config</span><br><span class="line"># 简化操作</span><br><span class="line">hexo g -d # 结合了生成和部署</span><br></pre></td></tr></table></figure>
+<p>本质上hexo根据js css和其他配置生成静态网页，生成好的全部内容在public文件夹中，部署就是把public里面的全部内容放到对应的github仓库上，所以也可以自行更改一些东西，不过每次重新生成会将public里面的内容都先清掉。</p>
+<h2 id="在markdown中插入本地图片"><a href="#在markdown中插入本地图片" class="headerlink" title="在markdown中插入本地图片"></a>在markdown中插入本地图片</h2><p>首先需要在配置中打开这个限制，之后要安装npm hexo-g-image –save(命令行记不清了，可以上网查)这样再使用hexo n新建文章时会新建一个同名的文件夹，把图片放到文件夹中再相对路径引入到md文件中就可以自动上传图片了，这样就不需要图床了。<strong>需要注意的是md文件一定要和同名文件夹放到一个目录下。</strong></p>
+<h2 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h2><p>首先github给免费的username.github.io二级域名，如果想用自己的域名，可以先：</p>
+<ul>
+<li>买域名</li>
+<li>查看github域名对应的ip</li>
+<li>绑定DNS解析，@ A IP; www A IP/github域名</li>
+<li>在Github的仓库设置中选定对应域名</li>
+<li>在source目录下新建CNAME文件(没有扩展名)，把域名写到文件中，记事本就行</li>
+</ul>
+<p>我现在只有一年的frankzhang.tech的使用权，之后看情况再补。</p>
+<h2 id="下一阶段的计划"><a href="#下一阶段的计划" class="headerlink" title="下一阶段的计划"></a>下一阶段的计划</h2><p>下一步继续优化我的博客，从内容和形式上都要下手：    </p>
+<ul>
+<li>研究如何让谷歌和百度都能检索到我的网站</li>
+<li>导入b站视频api，网易云音乐api，丰富多媒体内容</li>
+<li>如果博客数量较大的时候考虑搬移到服务器上(简单方式本地服务器+内网穿透花生壳+域名解析，土豪方式直接阿里云)，但是看莫烦的python教程网站现在还是github.io，说明现在的体量没有问题。</li>
+<li>以后如果有一些视频分享，可以投B站，然后api过来。</li>
+<li>评论系统好像是disquz可以使用，没有测试。</li>
+<li>访客数统计和阅读量统计都没有做成功，可以研究一下</li>
+</ul>
+
       
 
       
@@ -191,6 +243,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -284,7 +347,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#如何利用Github搭建博客"><span class="toc-number">1.</span> <span class="toc-text">如何利用Github搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在markdown中插入本地图片"><span class="toc-number">2.</span> <span class="toc-text">在markdown中插入本地图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#域名设置"><span class="toc-number">3.</span> <span class="toc-text">域名设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下一阶段的计划"><span class="toc-number">4.</span> <span class="toc-text">下一阶段的计划</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -441,6 +504,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">计划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
