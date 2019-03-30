@@ -6,25 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>paper report: 调研self-ensembling相关文章 | Frank Zhang&#39;s Tech Blog</title>
+  <title>hexo建站总结 | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
-<meta name="keywords" content="paper report,self-ensembling,domain adaptation,semi-supervised learning">
-<meta property="og:type" content="article">
-<meta property="og:title" content="paper report: 调研self-ensembling相关文章">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="hexo建站总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/hexo建站总结/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
-<meta property="og:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/2-model.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/temporal.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/MeanTeacher.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/DA.png">
-<meta property="og:updated_time" content="2019-03-30T09:06:04.850Z">
+<meta property="og:updated_time" content="2019-03-30T09:16:42.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="paper report: 调研self-ensembling相关文章">
-<meta name="twitter:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/2-model.png">
+<meta name="twitter:title" content="hexo建站总结">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -166,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-paper report/paper-report-调研self-ensembling相关文章" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hexo建站总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      paper report: 调研self-ensembling相关文章
+      hexo建站总结
     </h1>
   
 
         
-        <a href="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/" class="archive-article-date">
-  	<time datetime="2019-03-30T03:54:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
+        <a href="/2019/03/30/hexo建站总结/" class="archive-article-date">
+  	<time datetime="2019-03-30T09:16:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
 </a>
         
         <!-- 添加代码 -->
@@ -192,32 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="paper-list："><a href="#paper-list：" class="headerlink" title="paper list："></a>paper list：</h3><ul>
-<li><p>Temporal Ensembling for Semi-Supervised Learning</p>
-</li>
-<li><p>Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results</p>
-</li>
-<li><p>Self-ensembling for visual domain adaptation</p>
-</li>
-</ul>
-<a id="more"></a>
-<h3 id="Temporal-Ensembling"><a href="#Temporal-Ensembling" class="headerlink" title="Temporal Ensembling"></a>Temporal Ensembling</h3><p>这篇文章针对Semi-Supervised Learning的问题提出了在时间维度进行ensembling的方式。核心算法是在训练过程中将每个样本的预测输出在时间维度上滑动平均。相比于$\prod-model$模型优点在于数据只用通过一次网络就可以完成训练。</p>
-<p>之前提出的$\prod-model$模型<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/2-model.png" alt="2-model"></p>
-<p>本文的temproal ensembling算法：<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/temporal.png" alt="temporal"></p>
-<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了上一篇Temporal Ensembling的启发，但是没有对输出的预测标签进行时间上的滑动平均。Mean Teacher采用两个网络，student网络是直接使用SGD训练的网络，而teacher网络是student网络的滑动平均，两个网络使用不同的dropout，noise和输入图像的增强特征。<br>Mean Teacher的网络模型如下所示：<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/MeanTeacher.png" alt="MeanTeacher"></p>
-<h3 id="Self-ensembling-in-visual-domain-adaptation"><a href="#Self-ensembling-in-visual-domain-adaptation" class="headerlink" title="Self-ensembling in visual domain adaptation"></a>Self-ensembling in visual domain adaptation</h3><p>这篇文章将Mean Teacher的方法用到了unsupervised domain adaptation上，原有的方法是在semi-supervised learning的情景下提出的。</p>
-<p>本文的网络结构：<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/DA.png" alt="DA"></p>
-<p>对source domain的数据只计算分类损失，对target domain的数据使用student和teacher两个网络的预测输出值做self-ensembling的损失(MSELoss)，但是和Mean Teacher不同的是没有采用Gaussian的ramp-up方式，而是使用一个confidence threshold的方式，如果target数据的预测标签输出小于阈值就不计算它的self-ensembling loss。</p>
-<p>由于看到USPS数据集存在class之间数据量差异大导致在训练过程的问题，提出了一个class balance loss，将每个mini-batch的预测标签求平均，和全局真实分布计算binary cross entropy loss加以惩罚，防止其向数据量多的class偏移。</p>
-<p>在Mean Teacher和Temporal Ensembling的基础上增加了数据增强的方式，random affine transformations， 直接对像素加Gaussian噪声</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这三篇文章层层推进，将self-ensembling的方式在temporal的方向上发展并引入到domain adaptation这个无监督学习的方向中，模型简单而有效。</p>
-<p><br><br><br></p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h4><ul>
-<li>[1]. S. Laine and T. Aila. Temporal Ensembling for Semi-Supervised Learning. arXiv:1610.02242 [cs], Oct. 2016.</li>
-<li>[2]. A. Tarvainen and H. Valpola. Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results. In NIPS, 2017.</li>
-<li>[3]G. French, M. Mackiewicz, and M. Fisher. Self-ensembling for visual domain adaptation. In International Conference on Learning Representations, 2018.</li>
-</ul>
-
+        
       
 
       
@@ -225,29 +191,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">paper report</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">self-ensembling</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">semi-supervised learning</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -298,7 +241,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/30/hexo建站总结/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -312,18 +255,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/30/hexo建站总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo建站总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/28/2019年技术博客计划/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">技术博客计划</div>
+    <a href="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">paper report: 调研self-ensembling相关文章</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -350,7 +284,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#paper-list："><span class="toc-number">1.</span> <span class="toc-text">paper list：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Temporal-Ensembling"><span class="toc-number">2.</span> <span class="toc-text">Temporal Ensembling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mean-Teacher"><span class="toc-number">3.</span> <span class="toc-text">Mean Teacher</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Self-ensembling-in-visual-domain-adaptation"><span class="toc-number">4.</span> <span class="toc-text">Self-ensembling in visual domain adaptation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考文献"><span class="toc-number">5.1.</span> <span class="toc-text">参考文献</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
