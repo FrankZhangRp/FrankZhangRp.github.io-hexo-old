@@ -6,20 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>歌曲分享 | Frank Zhang&#39;s Tech Blog</title>
+  <title>paper report: CAT | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="华语歌手">
-<meta name="keywords" content="音乐">
+  <meta name="description" content="paper list Cluster Alignment with a Teacher for Unsupervised Domain Adaptation">
+<meta name="keywords" content="paper report,domain adaptation,unsupervised DA,cluster assumption">
 <meta property="og:type" content="article">
-<meta property="og:title" content="歌曲分享">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/生活艺术/歌曲分享/index.html">
+<meta property="og:title" content="paper report: CAT">
+<meta property="og:url" content="http://yoursite.com/2019/04/12/paper report/paper-report-CAT/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
-<meta property="og:description" content="华语歌手">
+<meta property="og:description" content="paper list Cluster Alignment with a Teacher for Unsupervised Domain Adaptation">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T11:29:55.349Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT-1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT公式1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT-2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT公式2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT公式3.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT公式4.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CATResult1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CATResult2.png">
+<meta property="og:updated_time" content="2019-04-12T08:22:44.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="歌曲分享">
-<meta name="twitter:description" content="华语歌手">
+<meta name="twitter:title" content="paper report: CAT">
+<meta name="twitter:description" content="paper list Cluster Alignment with a Teacher for Unsupervised Domain Adaptation">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/12/paper%20report/paper-report-CAT/CAT-1.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -159,20 +168,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-生活艺术/歌曲分享" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-paper report/paper-report-CAT" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      歌曲分享
+      paper report: CAT
     </h1>
   
 
         
-        <a href="/2019/03/30/生活艺术/歌曲分享/" class="archive-article-date">
-  	<time datetime="2019-03-30T11:24:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-30</time>
+        <a href="/2019/04/12/paper report/paper-report-CAT/" class="archive-article-date">
+  	<time datetime="2019-04-12T08:15:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
 </a>
         
         <!-- 添加代码 -->
@@ -185,13 +194,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- 为了测试网易云音乐的外链 -->
-<h2 id="华语歌手"><a href="#华语歌手" class="headerlink" title="华语歌手"></a>华语歌手</h2><a id="more"></a>
-<h3 id="金玟岐"><a href="#金玟岐" class="headerlink" title="金玟岐"></a>金玟岐</h3><p><strong>岁月神偷</strong></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28285910&auto=1&height=66"></iframe>
-
-<p><strong>才华有限公司</strong></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28692862&auto=1&height=66"></iframe>
+        <h3 id="paper-list"><a href="#paper-list" class="headerlink" title="paper list"></a>paper list</h3><ul>
+<li>Cluster Alignment with a Teacher for Unsupervised Domain Adaptation<a id="more"></a>
+</li>
+</ul>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3><p>之前的DA方法直接对source和target的边缘分布进行直接对齐，没有考虑到domain内部的细粒度结构，所以效果都不是很好。本文提出的Cluster Alignment with a Teacher（CAT）方法可以有效地结合这两个领域的判别聚类结构，以获得更好的适应能力。CAT利用隐式teacher ensembling模型，可靠地发现未标记目标域的特征空间中的类条件结构。CAT结构强迫从source和target提取的特征适应到discriminative class-conditional clusters，并将这些clusters进行对齐。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p><img src="/2019/04/12/paper report/paper-report-CAT/CAT-1.png" alt="CAT-1"><br>之前的DA方法无法在图1所示的情况中有很好的表现。<br>原本的DA假设存在很多问题，不能简单的直接在domain-level上进行分布的匹配。</p>
+<p>本文提出的CAT结构有三个学习目标：</p>
+<ul>
+<li>最初CAT最小化监督学习的分类损失并以此为基础构建一个teacher net（用来在后面的训练过程中给target domain数据提供pseudo label的）（在source domain上表现良好的分类器也可以在target的大部分样本上有很好的表现，因为source和target之间存在一定的相似性，并且teacher-student的学习方式对错误的pseudo label不敏感）</li>
+<li>另外两个学习目标是在teacher net给出的pseudo label的基础上得到的：CAT使用了一个和类别相关的聚类损失去让统一类别的特征强制聚集到一起，不同类别的特征尽可能的分开。</li>
+<li>两个domain的class-conditional对齐，CAT对齐的是cluster，使用一个conditional feature match loss</li>
+</ul>
+<h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><h5 id="Cluster-Alignment-with-a-Teacher"><a href="#Cluster-Alignment-with-a-Teacher" class="headerlink" title="Cluster Alignment with a Teacher"></a>Cluster Alignment with a Teacher</h5><p>CAT总体的Loss：</p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CAT公式1.png" alt="CAT-公式1"></p>
+<p>alpha是一个trade-off的超参数。整体的网络结构：</p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CAT-2.png" alt="CAT-2"></p>
+<p><strong>Discriminative clustering with a teacher</strong><br>之前的做法是直接根据source训练的模型生成target的pseudo label作为target domain的标注进行进一步的处理，这是self-training的直接方式。<strong>但它也存在误差放大的问题，这对学习过程是有害的！！</strong> 所以本文采用teacher net进行pseudo label的标注<br>之后引入的cluster loss：</p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CAT公式2.png" alt="CAT-公式2"></p>
+<p>d是分布距离的衡量函数，比如MSE距离</p>
+<p>但是有疑问：teacher net给出的label会对训练过程有负面影响吗？现在的解释是实验表示没有</p>
+<p><strong>Cluster Alignment Loss</strong></p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CAT公式3.png" alt="CAT-公式3"></p>
+<p>借鉴了Semi-Supervised Learning的cluster对齐方式。相当于将每类的特征输出做平均再做匹配</p>
+<p><strong>新的对抗损失，是对RevGrad（DANN）的改进</strong></p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CAT公式4.png" alt="CAT-公式4"></p>
+<p>c是domain分类器的输出，target部分还有一个阈值函数的输出。如果teacher net的输出置信度小于阈值就取消这一项</p>
+<h3 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h3><p>Office31</p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CATResult1.png" alt="CATResult1"></p>
+<p>ImageCLEF-DA</p>
+<p><img src="/2019/04/12/paper report/paper-report-CAT/CATResult2.png" alt="CATResult2"></p>
+<h3 id="文献下载地址"><a href="#文献下载地址" class="headerlink" title="文献下载地址"></a>文献下载地址</h3><p><a href="https://arxiv.org/pdf/1903.09980.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1903.09980.pdf</a></p>
 
       
 
@@ -205,7 +238,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">音乐</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">paper report</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unsupervised DA</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cluster assumption</a>
         		</li>
       		
 		</ul>
@@ -261,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/30/生活艺术/歌曲分享/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/12/paper report/paper-report-CAT/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/04/07/paper report/paper-report-DIRT-T/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          paper report: DIRT-T
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/30/建站相关教程总结/Github-Hexo教程-视频分享/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Github+Hexo教程 视频分享</div>
+    <a href="/2019/04/07/paper report/paper-report-DIRT-T/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">paper report: DIRT-T</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -313,7 +349,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#华语歌手"><span class="toc-number">1.</span> <span class="toc-text">华语歌手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#金玟岐"><span class="toc-number">1.1.</span> <span class="toc-text">金玟岐</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#paper-list"><span class="toc-number">1.</span> <span class="toc-text">paper list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Abstract"><span class="toc-number">2.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">3.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Method"><span class="toc-number">4.</span> <span class="toc-text">Method</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Cluster-Alignment-with-a-Teacher"><span class="toc-number">4.0.1.</span> <span class="toc-text">Cluster Alignment with a Teacher</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Experiments"><span class="toc-number">5.</span> <span class="toc-text">Experiments</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文献下载地址"><span class="toc-number">6.</span> <span class="toc-text">文献下载地址</span></a></li>
                     </div>
                 </span>
             </div>
