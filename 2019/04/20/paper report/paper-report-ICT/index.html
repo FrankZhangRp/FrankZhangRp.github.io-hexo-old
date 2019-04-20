@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/4 | Frank Zhang&#39;s Tech Blog</title>
+  <title>paper-report_ICT | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Frank Zhang&#39;s Tech Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/04/index.html">
+  <meta name="description" content="paper list Interpolation Consistency Training for Semi-Supervised Learning">
+<meta name="keywords" content="paper report,semi-supervised learning,mix up,cluster assumption,mean teacher">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paper-report_ICT">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/paper report/paper-report-ICT/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
+<meta property="og:description" content="paper list Interpolation Consistency Training for Semi-Supervised Learning">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/paper%20report/paper-report-ICT/ICT.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/paper%20report/paper-report-ICT/Algorithm1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/20/paper%20report/paper-report-ICT/Result.png">
+<meta property="og:updated_time" content="2019-04-20T04:00:16.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frank Zhang&#39;s Tech Blog">
+<meta name="twitter:title" content="paper-report_ICT">
+<meta name="twitter:description" content="paper list Interpolation Consistency Training for Semi-Supervised Learning">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/20/paper%20report/paper-report-ICT/ICT.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -154,36 +163,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-paper report/paper-report-ICT" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/20/paper report/paper-report-ICT/" class="archive-article-date">
-  	<time datetime="2019-04-20T03:55:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/20/paper report/paper-report-ICT/">paper-report_ICT</a>
+    <h1 class="article-title" itemprop="name">
+      paper-report_ICT
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/20/paper report/paper-report-ICT/" class="archive-article-date">
+  	<time datetime="2019-04-20T03:55:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
+</a>
+        
+        <!-- 添加代码 -->
+        
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="paper-list"><a href="#paper-list" class="headerlink" title="paper list"></a>paper list</h3><ul>
+<li>Interpolation Consistency Training for Semi-Supervised Learning<a id="more"></a>
+<h3 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h3>本文提出Interpolation Consistency Training（ICT）方法，一个简单但是高效的SSL算法。ICT方法将分类的决策边界推向了低密度区域。</li>
+</ul>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>在SSL中因为大量的无标签数据，需要一些假设的支撑<br>Cluster Assumption：如果两个样本的输入分布属于同一个聚类，那么这两个样本可以认为是相同的。这个假设和low-density separation assumption相同：决策边界应该在低密度区域。这个假设启发了最新很多基于一致性正则化的SSL方法。这些方法的核心思想是对无标签的样本加入一个扰动，要求在扰动前后预测不变，区别在于如何添加扰动，一种是引入随机扰动，但是在高维空间这样效果不好，由于只有很小比例的输入扰动能够将决策边界推入低密度区域。VAT方法（Virtual Adversarial Training）希望寻找让模型预测偏差最大的扰动方向。（VADA方法就是VAT的DA实现） 但是最近的研究表明对抗扰动方法会伤害泛化性能表现。<br>为了克服上面所述的困难，本文提出ICT方法，将target domain的数据mix up并期望输出特征也是对应线性的插值结果。<br>$$<br>f(\alpha u_{1} + (1- \alpha)u_{2}) = \alpha f(u_{1}) + (1-\alpha)f(u_{2})<br>$$</p>
+<h3 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h3><p>ICT的核心操作，Mix Up：</p>
+<p>$$<br>Mix_{\lambda} (a, b) = \lambda \cdot a + (1- \lambda) \cdot b<br>$$</p>
+<p>引入一个teacher net，是原有网络参数的滑动平均，ICT希望将target数据mix up后的输出与teacher net的输出mix up相似</p>
+<p>$$<br>f_{\theta}(Mix_{\lambda} (u_{j}, u_{k})) \approx Mix_{\lambda} (f_{\theta ‘} (u_{j}), f_{\theta ‘} (u_{k}) )<br>$$</p>
+<p><img src="/2019/04/20/paper report/paper-report-ICT/ICT.png" alt="ICT model"></p>
+<p>使用Mixup作为扰动相当于$u_{j}+\delta = Mix_{\lambda}(u_{j}, u_{k})$，相当于使用$u_{k}$作为扰动，这里的$u_{k}$可以是相同聚类的，不同聚类但是相同类别的，不同聚类也是不同类别的。其中第三种情况概率最大，如果恰好$u_{j}$在决策边界上，这个方法很容易构造出加入扰动就改变预测值的选项，即这样的添加扰动方式效率很高，也更符合low-density assumption。直观上，我们希望将决策边界尽可能地推离类边界，因为众所周知，具有较大边界的决策边界泛化得更好。使用mixup方法可以强制分类边界线性从而增大边界。</p>
+<p>最终方法是随机选取两个target domain的样本，计算teacher net上的输出并进行mix up，对原始样本进行mix up再通过student net，将两者的输出进行对应计算一致性损失。</p>
+<p>整体loss：<br>$$<br>    L = L_{S} + w(t) \cdot L_{US}<br>$$</p>
+<p>整体算法：<br><img src="/2019/04/20/paper report/paper-report-ICT/Algorithm1.png" alt="Algorithm"></p>
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h3><p><img src="/2019/04/20/paper report/paper-report-ICT/Result.png" alt="Result"></p>
+<h3 id="文献下载地址"><a href="#文献下载地址" class="headerlink" title="文献下载地址"></a>文献下载地址</h3><p><a href="https://arxiv.org/pdf/1903.03825v1.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1903.03825v1.pdf</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -211,161 +240,135 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/20/paper report/paper-report-ICT/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/20/毕业论文写作的一些技巧/" class="archive-article-date">
-  	<time datetime="2019-04-20T03:32:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/20/毕业论文写作的一些技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">毕业论文写作的一些技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/20/毕业论文写作的一些技巧/">毕业论文写作的一些技巧</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">论文写作</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">word 排版</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#paper-list"><span class="toc-number">1.</span> <span class="toc-text">paper list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Abstract"><span class="toc-number">2.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">3.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Methods"><span class="toc-number">4.</span> <span class="toc-text">Methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Results"><span class="toc-number">5.</span> <span class="toc-text">Results</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文献下载地址"><span class="toc-number">6.</span> <span class="toc-text">文献下载地址</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/12/paper report/paper-report-CAT/" class="archive-article-date">
-  	<time datetime="2019-04-12T08:15:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-12</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/12/paper report/paper-report-CAT/">paper report: CAT</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">paper report</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cluster assumption</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unsupervised DA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/07/paper report/paper-report-DIRT-T/" class="archive-article-date">
-  	<time datetime="2019-04-07T02:47:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/07/paper report/paper-report-DIRT-T/">paper report: DIRT-T</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">paper report</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cluster assumption</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">self-ensembling</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'FrankZhang'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
 
-    
+  
 
 
           </div>
@@ -391,8 +394,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
