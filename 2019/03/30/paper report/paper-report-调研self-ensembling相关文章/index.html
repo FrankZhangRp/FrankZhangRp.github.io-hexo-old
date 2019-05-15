@@ -9,22 +9,22 @@
   <title>paper report: 调研self-ensembling相关文章 | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
-<meta name="keywords" content="paper report,self-ensembling,domain adaptation,semi-supervised learning">
+<meta name="keywords" content="paper report,domain adaptation,self-ensembling,semi-supervised learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper report: 调研self-ensembling相关文章">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
 <meta property="og:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/2-model.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/temporal.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/MeanTeacher.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/DA.png">
-<meta property="og:updated_time" content="2019-03-30T09:06:04.850Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/paper-report-调研self-ensembling相关文章/2-model.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/paper-report-调研self-ensembling相关文章/temporal.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/paper-report-调研self-ensembling相关文章/MeanTeacher.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/paper-report-调研self-ensembling相关文章/DA.png">
+<meta property="og:updated_time" content="2019-03-30T09:06:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper report: 调研self-ensembling相关文章">
 <meta name="twitter:description" content="paper list： Temporal Ensembling for Semi-Supervised Learning  Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results  Self-ensembling f">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/2-model.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/30/paper%20report/paper-report-调研self-ensembling相关文章/paper-report-调研self-ensembling相关文章/2-model.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -200,11 +200,11 @@
 </ul>
 <a id="more"></a>
 <h3 id="Temporal-Ensembling"><a href="#Temporal-Ensembling" class="headerlink" title="Temporal Ensembling"></a>Temporal Ensembling</h3><p>这篇文章针对Semi-Supervised Learning的问题提出了在时间维度进行ensembling的方式。核心算法是在训练过程中将每个样本的预测输出在时间维度上滑动平均。相比于$\prod-model$模型优点在于数据只用通过一次网络就可以完成训练。</p>
-<p>之前提出的$\prod-model$模型<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/2-model.png" alt="2-model"></p>
-<p>本文的temproal ensembling算法：<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/temporal.png" alt="temporal"></p>
-<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了上一篇Temporal Ensembling的启发，但是没有对输出的预测标签进行时间上的滑动平均。Mean Teacher采用两个网络，student网络是直接使用SGD训练的网络，而teacher网络是student网络的滑动平均，两个网络使用不同的dropout，noise和输入图像的增强特征。<br>Mean Teacher的网络模型如下所示：<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/MeanTeacher.png" alt="MeanTeacher"></p>
+<p>之前提出的$\prod-model$模型<br><img src="paper-report-调研self-ensembling相关文章/2-model.png" alt="2-model"></p>
+<p>本文的temproal ensembling算法：<br><img src="paper-report-调研self-ensembling相关文章/temporal.png" alt="temporal"></p>
+<h3 id="Mean-Teacher"><a href="#Mean-Teacher" class="headerlink" title="Mean Teacher"></a>Mean Teacher</h3><p>这篇文章是受到了上一篇Temporal Ensembling的启发，但是没有对输出的预测标签进行时间上的滑动平均。Mean Teacher采用两个网络，student网络是直接使用SGD训练的网络，而teacher网络是student网络的滑动平均，两个网络使用不同的dropout，noise和输入图像的增强特征。<br>Mean Teacher的网络模型如下所示：<br><img src="paper-report-调研self-ensembling相关文章/MeanTeacher.png" alt="MeanTeacher"></p>
 <h3 id="Self-ensembling-in-visual-domain-adaptation"><a href="#Self-ensembling-in-visual-domain-adaptation" class="headerlink" title="Self-ensembling in visual domain adaptation"></a>Self-ensembling in visual domain adaptation</h3><p>这篇文章将Mean Teacher的方法用到了unsupervised domain adaptation上，原有的方法是在semi-supervised learning的情景下提出的。</p>
-<p>本文的网络结构：<br><img src="/2019/03/30/paper report/paper-report-调研self-ensembling相关文章/DA.png" alt="DA"></p>
+<p>本文的网络结构：<br><img src="paper-report-调研self-ensembling相关文章/DA.png" alt="DA"></p>
 <p>对source domain的数据只计算分类损失，对target domain的数据使用student和teacher两个网络的预测输出值做self-ensembling的损失(MSELoss)，但是和Mean Teacher不同的是没有采用Gaussian的ramp-up方式，而是使用一个confidence threshold的方式，如果target数据的预测标签输出小于阈值就不计算它的self-ensembling loss。</p>
 <p>由于看到USPS数据集存在class之间数据量差异大导致在训练过程的问题，提出了一个class balance loss，将每个mini-batch的预测标签求平均，和全局真实分布计算binary cross entropy loss加以惩罚，防止其向数据量多的class偏移。</p>
 <p>在Mean Teacher和Temporal Ensembling的基础上增加了数据增强的方式，random affine transformations， 直接对像素加Gaussian噪声</p>
@@ -232,11 +232,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">self-ensembling</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">self-ensembling</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -393,7 +393,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019年 05月 13日 Frank Zhang
+    		&copy; 2019年 05月 15日 Frank Zhang
     	</div>
       	<!-- <div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -514,15 +514,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">self-ensembling</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">domain adaptation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cluster assumption</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,11 +522,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">cluster assumption</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color1">self-ensembling</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,6 +542,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">few shot</a>
               </li>
              
@@ -559,6 +555,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">few shot classification</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
             
             <div class="clearfix"></div>

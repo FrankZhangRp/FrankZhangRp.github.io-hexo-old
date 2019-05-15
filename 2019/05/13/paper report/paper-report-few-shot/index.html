@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
 <meta property="og:description" content="paper list A Closer Look at Few-Shot Classification">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/Baseline++.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/Meta.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/Result1.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/Result2.png">
-<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/Result3.png">
-<meta property="og:updated_time" content="2019-05-13T02:26:34.887Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/paper-report-few-shot/Baseline++.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/paper-report-few-shot/Meta.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/paper-report-few-shot/Result1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/paper-report-few-shot/Result2.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/paper-report-few-shot/Result3.png">
+<meta property="og:updated_time" content="2019-05-13T02:26:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Paper Report: A Closer Look at Few-Shot Classification">
 <meta name="twitter:description" content="paper list A Closer Look at Few-Shot Classification">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/Baseline++.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/13/paper%20report/paper-report-few-shot/paper-report-few-shot/Baseline++.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -213,12 +213,12 @@
 <p><strong>Initilaization based methods</strong><br>将few-shot问题看做学习去微调（“learning to fine-tune”）。一种方式是去学习一个好的模型初始化（初始化网络参数）以至于分类器可以对新的类别使用少量数据集和较少的迭代次数得到一个较好的结果。<br>另一条线是learning an optimizer，有LSTM-based meta-learner移除了SGD优化器，有使用额外存储做权重更新机制的。虽然这些基于初始化的方法可以快速适应新的类别，但是在本文的实验中这些方法难以处理domain shift问题。</p>
 <p><strong>DIstance metric learning based methods</strong><br>将few-shot问题转化为learning to compare，这种方法的直接思路是如果一个模型能够计算两个图像的相似度，那么就可以对unseen的图像也正确分类。为了学习一个复杂的对比模型，meta-learning based methods让决策条件基于少量有label的distance或者metric。<br>本文我们比较懒三个distance metric learning方法，本文的结果表明使用distance-based classifier的baseline方法（不需要类似meta learning的episode training）就可以达到competitive performance。<br>本文的baseline++也有类似的工作，但是都没有本文方法简单，baseline++可以看做是这些工作的简化版本。本文关注的重点则在于在baseline model中简单的降低类内方差就能达到很好的结果。</p>
 <p><strong>Hallucination based methods</strong><br>直接通过数据扩充learning to augment方式解决数据量不够的问题。（类似GAN的方法）这些方法要从base数据中学习到一个生成器，之后使用这个生成器生成新类别的训练数据（或者可以看成一种数据增强的手段）<br>这种方法一般和上述两类方法一起使用，作为一个增强手段。</p>
-<h3 id="Overview-of-Few-Shot-Classification-Algorithms"><a href="#Overview-of-Few-Shot-Classification-Algorithms" class="headerlink" title="Overview of Few-Shot Classification Algorithms"></a>Overview of Few-Shot Classification Algorithms</h3><h5 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h5><p>采用标准的迁移学习的预训练和微调过程：<br><img src="/2019/05/13/paper report/paper-report-few-shot/Baseline++.png" alt="baseline++"><br>Training Stage：<br>从头训练网络，使用标准交叉熵损失函数在base class的数据上训练</p>
+<h3 id="Overview-of-Few-Shot-Classification-Algorithms"><a href="#Overview-of-Few-Shot-Classification-Algorithms" class="headerlink" title="Overview of Few-Shot Classification Algorithms"></a>Overview of Few-Shot Classification Algorithms</h3><h5 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h5><p>采用标准的迁移学习的预训练和微调过程：<br><img src="paper-report-few-shot/Baseline++.png" alt="baseline++"><br>Training Stage：<br>从头训练网络，使用标准交叉熵损失函数在base class的数据上训练</p>
 <p>Fine-tune stage:<br>固定特征提取部分的参数，用新类别的数据训练一个新的分类器。</p>
 <h5 id="Baseline-1"><a href="#Baseline-1" class="headerlink" title="Baseline++"></a>Baseline++</h5><p>在baseline方法上减少类内特征的方差。<br>Baseline++方法training stage和baseline相同，区别在于分类器的设计，如图1所示，在分类器前加入一个权重矩阵（在train stage训练的），权重矩阵是dxc的大小，c类分类结果都有d维的权重向量。在training stage中每个特征输出和权重向量计算余弦相似性（cosine similarity），得到c个相似分数：</p>
 <p>$<br>s_{i,j} = f_{\theta}(x_i)^\top w_j /  \left |  f_{\theta}(x_i)  \right | \left | w_j \right |<br>$</p>
 <p>之后将这些分数通过softmax函数得到最终的预测值。使用这种方法可以减少同类预测值的方差</p>
-<h5 id="Meta-Learning-ALogrithms"><a href="#Meta-Learning-ALogrithms" class="headerlink" title="Meta-Learning ALogrithms"></a>Meta-Learning ALogrithms</h5><p><img src="/2019/05/13/paper report/paper-report-few-shot/Meta.png" alt="meta trian&amp;test"><br>meta learning的训练过程，在meta-train和meta-test阶段都有训练集和测试集，分别称为S和Q。在Meta-train阶段，算法首先随机选择N类，之后采样得到一个小的$S_b$数据集和一个$Q_b$数据集。目标是训练一个分类模型M，最小化$Q_b$数据集上N类的预测损失$L_{N-way}$。通过在给定支持集的条件下进行预测，元学习方法可以通过从一组任务(情节)中进行训练，学习如何从有限的标记数据中学习。<br>在Meta-test阶段，所有新类别数据$X_n$都认为是整体新类别数据$S_n$的支持集（support set）。而不同的Meta learning方法在做出基于支持集的预测的策略时是不同的。如图2所示。<br>不同的支持集有不同的梯度更新,适应模型条件设置的支持。请注意,当Q集meta-training适应模型预测的阶段,Q集的损失设置用于更新初始模型,不更新适应模型。</p>
+<h5 id="Meta-Learning-ALogrithms"><a href="#Meta-Learning-ALogrithms" class="headerlink" title="Meta-Learning ALogrithms"></a>Meta-Learning ALogrithms</h5><p><img src="paper-report-few-shot/Meta.png" alt="meta trian&amp;test"><br>meta learning的训练过程，在meta-train和meta-test阶段都有训练集和测试集，分别称为S和Q。在Meta-train阶段，算法首先随机选择N类，之后采样得到一个小的$S_b$数据集和一个$Q_b$数据集。目标是训练一个分类模型M，最小化$Q_b$数据集上N类的预测损失$L_{N-way}$。通过在给定支持集的条件下进行预测，元学习方法可以通过从一组任务(情节)中进行训练，学习如何从有限的标记数据中学习。<br>在Meta-test阶段，所有新类别数据$X_n$都认为是整体新类别数据$S_n$的支持集（support set）。而不同的Meta learning方法在做出基于支持集的预测的策略时是不同的。如图2所示。<br>不同的支持集有不同的梯度更新,适应模型条件设置的支持。请注意,当Q集meta-training适应模型预测的阶段,Q集的损失设置用于更新初始模型,不更新适应模型。</p>
 <h3 id="Experimental-Results"><a href="#Experimental-Results" class="headerlink" title="Experimental Results"></a>Experimental Results</h3><h5 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h5><p><strong>Datasets and scenarios</strong><br>本文讨论三种scenarios：</p>
 <ul>
 <li>generic object recognition</li>
@@ -227,9 +227,9 @@
 </ul>
 <p>第一种object recognition使用mini-ImageNet数据集，100类每类600张，选取64作为base，16 val, 20 novel<br>第二种 fine-grained classification 选择CUB-200-2011数据集，200类，一共11788图像，选用100类base,50val和50novel<br>cross-domain adaptation使用mini-ImageNet 到CUB，使用mini-ImageNet作为base，50val和50novel和第二测试的CUB相同。</p>
 <p><strong>Implementation details</strong><br>在training stage中400 epoch，bs 16，Meta training stage 60000 episodes for 1-shot，40000 episodes for 5-shot。使用val上表现最好的。选取N=5作为N-way classification。meta test的测试集16个实例，训练集k-shot</p>
-<h5 id="Evaluation-Using-the-Standard-Setting"><a href="#Evaluation-Using-the-Standard-Setting" class="headerlink" title="Evaluation Using the Standard Setting"></a>Evaluation Using the Standard Setting</h5><p>实验结果：<br><img src="/2019/05/13/paper report/paper-report-few-shot/Result1.png" alt="Result1"><br>用来对比不同的方法在统一实验环境下的表现</p>
-<h5 id="Effect-of-Increasing-The-Network-Depth"><a href="#Effect-of-Increasing-The-Network-Depth" class="headerlink" title="Effect of Increasing The Network Depth"></a>Effect of Increasing The Network Depth</h5><p>采用不同的CNN作为特征提取器的backbone:<br><img src="/2019/05/13/paper report/paper-report-few-shot/Result2.png" alt="Result2"></p>
-<h5 id="Effect-of-Domain-Differences-between-Base-and-Novel-CLasses"><a href="#Effect-of-Domain-Differences-between-Base-and-Novel-CLasses" class="headerlink" title="Effect of Domain Differences between Base and Novel CLasses"></a>Effect of Domain Differences between Base and Novel CLasses</h5><p>对比domain shift对于模型结果的影响，结果证明本文的baseline++在跨domain上有很好的表现并且其他的方法没有如此强的能力。<br><img src="/2019/05/13/paper report/paper-report-few-shot/Result3.png" alt="Result3"></p>
+<h5 id="Evaluation-Using-the-Standard-Setting"><a href="#Evaluation-Using-the-Standard-Setting" class="headerlink" title="Evaluation Using the Standard Setting"></a>Evaluation Using the Standard Setting</h5><p>实验结果：<br><img src="paper-report-few-shot/Result1.png" alt="Result1"><br>用来对比不同的方法在统一实验环境下的表现</p>
+<h5 id="Effect-of-Increasing-The-Network-Depth"><a href="#Effect-of-Increasing-The-Network-Depth" class="headerlink" title="Effect of Increasing The Network Depth"></a>Effect of Increasing The Network Depth</h5><p>采用不同的CNN作为特征提取器的backbone:<br><img src="paper-report-few-shot/Result2.png" alt="Result2"></p>
+<h5 id="Effect-of-Domain-Differences-between-Base-and-Novel-CLasses"><a href="#Effect-of-Domain-Differences-between-Base-and-Novel-CLasses" class="headerlink" title="Effect of Domain Differences between Base and Novel CLasses"></a>Effect of Domain Differences between Base and Novel CLasses</h5><p>对比domain shift对于模型结果的影响，结果证明本文的baseline++在跨domain上有很好的表现并且其他的方法没有如此强的能力。<br><img src="paper-report-few-shot/Result3.png" alt="Result3"></p>
 <h3 id="文献下载地址"><a href="#文献下载地址" class="headerlink" title="文献下载地址"></a>文献下载地址</h3><p><a href="https://arxiv.org/pdf/1904.04232v1.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1904.04232v1.pdf</a></p>
 
       
@@ -400,7 +400,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019年 05月 13日 Frank Zhang
+    		&copy; 2019年 05月 15日 Frank Zhang
     	</div>
       	<!-- <div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -521,15 +521,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">self-ensembling</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">domain adaptation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cluster assumption</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,11 +529,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">cluster assumption</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color1">self-ensembling</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,6 +549,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">few shot</a>
               </li>
              
@@ -566,6 +562,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">few shot classification</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
             
             <div class="clearfix"></div>

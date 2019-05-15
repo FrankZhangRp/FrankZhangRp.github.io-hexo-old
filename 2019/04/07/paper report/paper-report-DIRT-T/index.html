@@ -9,20 +9,20 @@
   <title>paper report: A DIRT-T Approach to Unsupervised Domain Adaptation | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="paper list A DIRT-T Approach to Unsupervised Domain Adaptation">
-<meta name="keywords" content="paper report,self-ensembling,domain adaptation,cluster assumption">
+<meta name="keywords" content="paper report,domain adaptation,cluster assumption,self-ensembling">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper report: A DIRT-T Approach to Unsupervised Domain Adaptation">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/paper report/paper-report-DIRT-T/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
 <meta property="og:description" content="paper list A DIRT-T Approach to Unsupervised Domain Adaptation">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/04/07/paper%20report/paper-report-DIRT-T/VADA.png">
-<meta property="og:image" content="http://yoursite.com/2019/04/07/paper%20report/paper-report-DIRT-T/DIRT-T.png">
-<meta property="og:updated_time" content="2019-04-20T04:03:44.647Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/07/paper%20report/paper-report-DIRT-T/paper-report-DIRT-T/VADA.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/07/paper%20report/paper-report-DIRT-T/paper-report-DIRT-T/DIRT-T.png">
+<meta property="og:updated_time" content="2019-04-20T04:03:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper report: A DIRT-T Approach to Unsupervised Domain Adaptation">
 <meta name="twitter:description" content="paper list A DIRT-T Approach to Unsupervised Domain Adaptation">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/07/paper%20report/paper-report-DIRT-T/VADA.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/07/paper%20report/paper-report-DIRT-T/paper-report-DIRT-T/VADA.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -207,10 +207,10 @@
 <p>其中每一部分的具体表示：</p>
 <p>$$L_{t}(\theta )=L_{v}(\theta;D_{t}) + L_{c}(\theta;D_{t})$$<br>$$L_{v}(\theta;D)=E_{x\sim D}\left [ \max \limits_{\left | r \right | \leq\varepsilon}D_{KL}(h_{\theta}(x+r)) \right ]$$<br>$$L_{c}(\theta;D_{t}) = - E_{x\sim D_{t}}[h_{\theta}(x)^{\top}\ln h_{\theta}(x)]$$</p>
 <p>总体的模型结构图：</p>
-<p><img src="/2019/04/07/paper report/paper-report-DIRT-T/VADA.png" width="80%" height="80%" div align="center/"></p>
+<p><img src="paper-report-DIRT-T/VADA.png" width="80%" height="80%" div align="center/"></p>
 <h4 id="DIRT-T"><a href="#DIRT-T" class="headerlink" title="DIRT-T"></a>DIRT-T</h4><p>在一个训练好的VADA网络的基础上，这篇文章设计了一个新的增强方法去提高性能。这个方法只使用target的数据，借鉴了Mean Teacher方法的思想，继续深入贯彻落实聚类假设，即加大聚类中心之间的距离，让数据分布远离分类边界。</p>
 <p>这里的DIRT-T方法更像一个two-stages训练方法的第二个stage，这个阶段的损失函数：<br>$$<br>\min\limits_{\theta_{n}}.\lambda_{t}L_{t}(\theta_{n})+\beta_{t}\mathbb{E}[D_{KL}(h_{\theta_{n-1}}(x)\parallel h_{\theta_{n}}(x))]<br>$$</p>
-<p><img src="/2019/04/07/paper report/paper-report-DIRT-T/DIRT-T.png" width="80%" height="80%" div align="center/"></p>
+<p><img src="paper-report-DIRT-T/DIRT-T.png" width="80%" height="80%" div align="center/"></p>
 <p>最后文章进行了一些测试和Ablation Study，证明了VADA加入的virtual adversarial training部分和DIRT-T增强方法的两个部分都是有效的，但是实验测试的数据集没有大规模数据集，有待进一步的测试。</p>
 <h3 id="文献下载地址"><a href="#文献下载地址" class="headerlink" title="文献下载地址"></a>文献下载地址</h3><p><a href="https://arxiv.org/pdf/1802.08735.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1802.08735.pdf</a></p>
 
@@ -230,15 +230,15 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">self-ensembling</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">domain adaptation</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cluster assumption</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">self-ensembling</a>
         		</li>
       		
 		</ul>
@@ -391,7 +391,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019年 05月 13日 Frank Zhang
+    		&copy; 2019年 05月 15日 Frank Zhang
     	</div>
       	<!-- <div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -512,15 +512,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">self-ensembling</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">domain adaptation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cluster assumption</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,11 +520,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
+                <a href="javascript:void(0)" class="js-tag color4">cluster assumption</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color1">self-ensembling</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,6 +540,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">few shot</a>
               </li>
              
@@ -557,6 +553,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">few shot classification</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">音乐</a>
               </li>
             
             <div class="clearfix"></div>
