@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: 工具 | Frank Zhang&#39;s Tech Blog</title>
+  <title>Multi-Domain and Multi-Task Learning | Frank Zhang&#39;s Tech Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Frank Zhang&#39;s Tech Blog">
-<meta property="og:url" content="http://example.com/tags/%E5%B7%A5%E5%85%B7/index.html">
+  <meta name="description" content="简单将这段时间看到的MDL和MTL的paper进行一个汇总的整理，不成体系 Paper List A Unified Pespective on Multi-Domain and Multi-Task Learning ICLR2015 Federated Multi-Task Learning NIPS2017 Variational Federated Multi-Task Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multi-Domain and Multi-Task Learning">
+<meta property="og:url" content="http://example.com/2021/09/17/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/MultiDomainLearning/index.html">
 <meta property="og:site_name" content="Frank Zhang&#39;s Tech Blog">
+<meta property="og:description" content="简单将这段时间看到的MDL和MTL的paper进行一个汇总的整理，不成体系 Paper List A Unified Pespective on Multi-Domain and Multi-Task Learning ICLR2015 Federated Multi-Task Learning NIPS2017 Variational Federated Multi-Task Learning">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/09/17/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/MultiDomainLearning/image-20210917154317966.png">
+<meta property="article:published_time" content="2021-09-17T02:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-17T09:11:09.045Z">
 <meta property="article:author" content="Frank Zhang">
+<meta property="article:tag" content="paper report">
+<meta property="article:tag" content="总结报告">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/09/17/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/MultiDomainLearning/image-20210917154317966.png">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -146,68 +154,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-博三-新的开始/Paper report/MultiDomainLearning" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/25/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%95%B4%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-08-25T08:14:46.734Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/25/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%95%B4%E7%90%86/">科研工作流的工具整理</a>
+    <h1 class="article-title" itemprop="name">
+      Multi-Domain and Multi-Task Learning
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/09/17/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/MultiDomainLearning/" class="archive-article-date">
+  	<time datetime="2021-09-17T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-09-17</time>
+</a>
+        
+        <!-- 添加代码 -->
+        
+          <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简单将这段时间看到的MDL和MTL的paper进行一个汇总的整理，不成体系</p>
+<h3 id="Paper-List"><a href="#Paper-List" class="headerlink" title="Paper List"></a>Paper List</h3><ul>
+<li>A Unified Pespective on Multi-Domain and Multi-Task Learning ICLR2015</li>
+<li>Federated Multi-Task Learning NIPS2017</li>
+<li>Variational Federated Multi-Task Learning arXiv:1906.06268</li>
+<li>FedU: A Unified Framework for Federated Multi-Task Learning with Laplacian Regularization</li>
+<li>Networked Federated Multi-Task Learning</li>
+<li>Federated Multi-Target Domain Adaptation</li>
+<li>Online Methods for Multi-Domain Learning and Adaptation</li>
+<li>Multi-Domain Learning: When Do Domains Matter?</li>
+<li>MEDIC: A Multi-Task Learning Dataset for Disaster Image Classification</li>
+<li>and more<span id="more"></span></li>
+</ul>
+<h3 id="1-A-Unified-Pespective-on-Multi-Domain-and-Multi-Task-Learning"><a href="#1-A-Unified-Pespective-on-Multi-Domain-and-Multi-Task-Learning" class="headerlink" title="1 A Unified Pespective on Multi-Domain and Multi-Task Learning"></a>1 A Unified Pespective on Multi-Domain and Multi-Task Learning</h3><p>Multi-domain learning 和 Multi-task learning 属于迁移学习的topic，核心的idea是不同的domain，不同的task之间存在可以share的知识，这是为什么要把不同的domain/task和在一起进行学习了。但是MDL和MTL可以share的基础又有一些区别，MDL的task相同，domain相似但是有相似性，MTL的数据属于同一domain，task之间存在相似性。但是现在学界对于task和domain的定义很微妙，不是严格区分的，所以MDL和MTL的方法往往在两个设定上都有效。但是还是一些本质上的差异，MDL的难点在于domain gap，而MTL的难点在于如何向不同的task share信息。</p>
+<p>这篇问题提出了一个统一解决MTL和MDL的方法。核心在于多变量的语义描述符”semantic descriptor”，MDL和MTL核心可以share的信息在DA/DG领域称之为domain-invariant，即在数据分布的多样性中寻找不变的特征，这些不变特征的存在是MDL/MTL任务之所以可以成功的前提。同时这篇文章提出了zero-shot DA的设定，只通过semantic descriptor得到对该unseen domain的模型。</p>
+<h4 id="1-1-MTL-MDL的背景总结"><a href="#1-1-MTL-MDL的背景总结" class="headerlink" title="1.1 MTL/MDL的背景总结"></a>1.1 MTL/MDL的背景总结</h4><p>MTL的assumptations:  </p>
+<ul>
+<li>对于linear model，将分类器的参数分为共享的部分和task specific的部分，共享部分的参数表示了不同task之间可以共享的信息<br>$$w=w_0+v_i$$</li>
+<li>low-rank / manifold assumption: ML中经久不衰的假设，认为不同task predictors分布在一个共有的低秩流形中，得到的低秩矩阵的每一列就是一个predictor，但是这个假设在实践中往往不可行，因为无法保证task之间的强相似性。</li>
+<li>大部分的MTL方法将每个task看为独立的原子个体，存在单一的分类变量掌控。但是这类假设无法handle复杂的任务，需要多种metadata参与的任务。MTL任务的困难在于任务之间都是相关的强假设。就像我们无法在同一套数据集上做DG和AD两个任务，一个work另一个肯定就不work。</li>
+</ul>
+<p>MDL的多种变体：</p>
+<ul>
+<li>Domain Adaptation: DA领域是老奶奶的袜子，又臭又长。是一个domain向另一个domain的迁移，核心是如何降低domain gap/shift导致在source domain上训练的模型在target domain上水土不服。</li>
+<li>MDL 同时有DA和MTL的特性，不同domain既可以看为不同的任务，又可以看为降低domain shift的影响。</li>
+</ul>
+<h4 id="1-2-本文提出的方法"><a href="#1-2-本文提出的方法" class="headerlink" title="1.2 本文提出的方法"></a>1.2 本文提出的方法</h4><p>由于文章属于DL时代早期文章，做法上也比较粗糙，核心是将原始输入x和metadata z作为网络的两个输入，通过将两支网络的输出进行内积得到结果。方法上没有太多可以借鉴的，这里也没有细看<br><img src="/2021/09/17/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/MultiDomainLearning/image-20210917154317966.png" alt="image-20210917154317966"></p>
+<p>使用的有意思的实验数据：语音识别：music和speech，具有鲜明的domain gap，而且还有device的gap<br>Animal with attributes：50个动物种类，每个类都有一个vector作为辅助metadata信息。</p>
+<h3 id="2-Federated-Multi-Task-Learning"><a href="#2-Federated-Multi-Task-Learning" class="headerlink" title="2 Federated Multi-Task Learning"></a>2 Federated Multi-Task Learning</h3><p>这篇文章从Federated learning的多设备分布式场景出发，指出这种场景和multi-task learning的设定非常相似，因此自然的结合成为Federated Multi-task learning的设定。这篇文章从实际应用角度出发进行算法设计，考虑了一系列实际场景下分布式设备训练的问题，核心目的是提速federated learning的训练。</p>
+<p>这篇文章讲故事的思路是首先摆出FL的设定，指出问题和难点，然后说明MTL很契合这些挑战。本文采用简单粗暴的data driven的MTL假设，即直接假设从数据中可以直接学到多任务的模型，并不预先假设task之间的相似性，低秩等性质。</p>
+<p>Federated Learning ~= Distributed Multi-Task Learning &lt;- Multi-Task Learning</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">计划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">paper report</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">工作流</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">总结报告</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/09/17/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/MultiDomainLearning/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/09/02/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/PolypGen/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Medical DG datasets -PolypGen,  A multi-center polyp detection and segmentation dataset for generalisability assessment</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Paper-List"><span class="toc-number">1.</span> <span class="toc-text">Paper List</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-A-Unified-Pespective-on-Multi-Domain-and-Multi-Task-Learning"><span class="toc-number">2.</span> <span class="toc-text">1 A Unified Pespective on Multi-Domain and Multi-Task Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-MTL-MDL%E7%9A%84%E8%83%8C%E6%99%AF%E6%80%BB%E7%BB%93"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 MTL&#x2F;MDL的背景总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%9C%AC%E6%96%87%E6%8F%90%E5%87%BA%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 本文提出的方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Federated-Multi-Task-Learning"><span class="toc-number">3.</span> <span class="toc-text">2 Federated Multi-Task Learning</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'FrankZhang'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
+
+  
 
 
           </div>
@@ -233,9 +388,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
