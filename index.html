@@ -170,37 +170,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="2021-11-17-近期DG文章汇总"><a href="#2021-11-17-近期DG文章汇总" class="headerlink" title="2021.11.17 近期DG文章汇总"></a>2021.11.17 近期DG文章汇总</h1><h3 id="1-Kun-Kuang老师团队关于DG的工作整理"><a href="#1-Kun-Kuang老师团队关于DG的工作整理" class="headerlink" title="1 Kun Kuang老师团队关于DG的工作整理"></a>1 Kun Kuang老师团队关于DG的工作整理</h3><ul>
-<li>(SemiDG) Domain-Specific Bias Filtering for Single Labeled Domain Generalization - arXiv:2110.00726</li>
-<li>(MSDG) Learning Domain-Invariant Relationship with Instrumental Variable for Domain Generalization - arXiv:2110.01438</li>
-<li>(FedDG) Do We Need to Directly Access the Source Datasets for Domain Generalization?</li>
-</ul>
-<p>Kun Kuang主要关注stable learning和因果相关的内容，在论文工作上将理论和工程结合的非常好，非常值得我们学习。对于DG问题，核心思想是stable prediction(从校准分类器的角度出发解决)，或者因果上的invariant features</p>
-<p>关于SemiDG文章的具体内容<br><img src="https://notes.sjtu.edu.cn//uploads/upload_4af71b85ef84ca09e31b2296832b35a2.png"></p>
-<p><img src="https://notes.sjtu.edu.cn//uploads/upload_09357fc0b63cdc8a3a969ce7b3b61920.png"><br><img src="https://notes.sjtu.edu.cn//uploads/upload_6b7ac25b6a87db1cc5a0f3e2492ce27b.png"></p>
-<p>关于MSDG的具体内容 前两篇的方法思路上非常相似，利用了工具变量法对分类器部分进行校准。<br><img src="https://notes.sjtu.edu.cn//uploads/upload_f10e191c5267ddba7c40936172ec2964.png"><br><img src="https://notes.sjtu.edu.cn/uploads/upload_f2cde9174ef6986fcfc0902d16ffdeee.png"><br><img src="https://notes.sjtu.edu.cn/uploads/upload_46ab8c722a2962542c93eeb74088a924.png"></p>
-<p>关于FedDG的内容，比价deep learning，比较直觉的想法，不像kuang老师的风格<br><img src="https://notes.sjtu.edu.cn/uploads/upload_8b0933e4f27a860ab73eefb368ada98f.png"></p>
-<h3 id="2-Better-Pseudo-label-Joint-Domain-aware-Label-and-Dual-classifier-for-Semi-supervised-Domain-Generalization-arXiv-2110-04820"><a href="#2-Better-Pseudo-label-Joint-Domain-aware-Label-and-Dual-classifier-for-Semi-supervised-Domain-Generalization-arXiv-2110-04820" class="headerlink" title="2 Better Pseudo-label: Joint Domain-aware Label and Dual-classifier for Semi-supervised Domain Generalization - arXiv:2110.04820"></a>2 Better Pseudo-label: Joint Domain-aware Label and Dual-classifier for Semi-supervised Domain Generalization - arXiv:2110.04820</h3><p>同样是一篇和我们SemiDG相同设定的文章，但是在自然图像上做的。关于SemiDG存在的问题的描述比较详细，Notation也不错。<br><img src="https://notes.sjtu.edu.cn/uploads/upload_e4e53d7aaae128fc0dc3f8360d9d4690.png"><br>在半监督学习的路径选择上使用了pseudo label的方式（主要针对分类问题)。目标是获取高质量的伪标签。但是SemiDG的设定让伪标签的domain和真实标签的domain之间存在shift，而train和test之间也存在shift，和传统的iid条件下的半监督学习相比获取高质量的伪标签更加困难。</p>
-<p>SemiDG在IEEE Trans on Instrumentation and Measurement(TIM) 2020 上已经被提出了，Deep semi-supervised domain generalization network for rotary machinery fault diagnosis under variable speed.</p>
-<p>整体框图，不是很直观。<br><img src="https://notes.sjtu.edu.cn/uploads/upload_df1ddc36c121062168b39a3dae8b74fe.png"></p>
-<p>pseudo label通过模型预测输出和memory bank中的各类特征之间的余弦相似度加权后softmax得到。<br>为了防止分类器在source domain上overfit，采用了dual-classifier结构。为了证明在source上overfit会降低泛化性，对比使用domain mixup和不使用，使用的在test上好，val上差。作者用domain mixup样本训练一个分类器，但是这个分类器在给pseudo label上表现差(underfit)，所以设计了一个dual classifier的结构。<br><img src="https://notes.sjtu.edu.cn/uploads/upload_5a445a19f1360d84c44e4c1431d29af7.png"></p>
-<p>总体算法：<br><img src="https://notes.sjtu.edu.cn/uploads/upload_5c6e8ce8b8eeaf3ce842ca3ede584bbc.png"></p>
-<p>其实叠加的模块很多，想法上也很直觉，论文也没有很精妙的包装。我们可以借鉴的是关于双分类器以及underfit overfit的实验现象，用来指导我们的算法设计。</p>
-<h3 id="3-Domain-Generalization-via-Encoding-and-Resampling-in-a-Unified-Latent-Space-TMM"><a href="#3-Domain-Generalization-via-Encoding-and-Resampling-in-a-Unified-Latent-Space-TMM" class="headerlink" title="3 Domain Generalization via Encoding and Resampling in a Unified Latent Space - TMM"></a>3 Domain Generalization via Encoding and Resampling in a Unified Latent Space - TMM</h3><p>MSDG设定下的工作，通过对特征的变分编码降低在source domain上特征的overfit。不同类别的特征在latent space上的差异在于高斯分布的均值不同，而MSDG的样本数量少也是一个问题，数量不够</p>
-<p>核心idea，通过对每个类别固定一个高斯分布，去除每个domain上特征的特异性。<br><img src="https://notes.sjtu.edu.cn/uploads/upload_b427c2ba9eb3dec413399196a375d37d.png"></p>
-<p>方法 通过DANN对抗去除特征的domain信息，在变分采样的过程中没有像VIB一样用一个固定的先验分布，而是每个类别有自己的均值方差，并且增大不同类的均值的L2距离。本文对KLloss进行FGSM的对抗，生成对抗的均值和方差，可以直接生成对抗的domain特征分布，再从生成分布中采样得到特征用来增强分类器的泛化性。（这种方式比较新颖） 但是没有清晰的把先验假设阐明清楚，mu hat如何更新不清晰，从公式上看出应该是默认先验分布的方差为1.<br><img src="https://notes.sjtu.edu.cn/uploads/upload_8a88fa4e1aa16610b1b66613e1f6fe68.png"></p>
-<h3 id="4-Learning-Transferrable-and-Interpretable-Representations-for-Domain-Generalization-MM2021"><a href="#4-Learning-Transferrable-and-Interpretable-Representations-for-Domain-Generalization-MM2021" class="headerlink" title="4 Learning Transferrable and Interpretable Representations for Domain Generalization - MM2021"></a>4 Learning Transferrable and Interpretable Representations for Domain Generalization - MM2021</h3><p>从transferable feature的角度去做MSDG问题。用因果性去攻击domain-invariant的思路，invariant只是对已经见过的source domain而言，从因果推断和泛化性角度并不好。</p>
-<p>核心想法：用已知domain的特征去表征未知domain，首先只能对MSDG，并且无法解决因果性和invariant的问题。<br><img src="https://notes.sjtu.edu.cn/uploads/upload_04b8fac6df842046eb0581b739f86b7e.png"></p>
-<p>作者首先假设未知domain和已知domain之间存在相关性，所以可以表征。(那single条件下如何做？) 其实本文的假设非常强，考虑PACS数据集，只用S作为训练集基本上PAC都不行了。</p>
-<p><img src="https://notes.sjtu.edu.cn/uploads/upload_40908c6d54075dfd0266b2e68aec5c7a.png"></p>
-<h3 id="5-Domain-Generalization-via-Feature-Variation-Decorrelation-MM2021"><a href="#5-Domain-Generalization-via-Feature-Variation-Decorrelation-MM2021" class="headerlink" title="5 Domain Generalization via Feature Variation Decorrelation - MM2021"></a>5 Domain Generalization via Feature Variation Decorrelation - MM2021</h3><p>motivation：认为每个class的特征分布是正态的，不同class的均值和方差不同，并且将均值视为该类的prototype。 要最大化每个class特征的方差（条件熵）</p>
-<p>用memory bank把整个训练数据集的特征都存起来，动态存储或者momentum更新。</p>
-<p><img src="https://notes.sjtu.edu.cn/uploads/upload_49c17bfe57b3ce674f4527f4b96edc28.png"></p>
-<p>思路还挺有意思，并不是用变分特征采样+KL loss到标准分布的形式，而是逐渐扩大每个class的特征方差。 也有一定的效果，可以考虑复现，有点意思。<br>无法从互信息的角度理解，如果把FVD看做H(Z|Y) 那其实是间接增大H(Z)</p>
-<h3 id="6-Exploiting-Domain-Specific-Features-to-Enhance-Domain-Generalization-NIPS-2021"><a href="#6-Exploiting-Domain-Specific-Features-to-Enhance-Domain-Generalization-NIPS-2021" class="headerlink" title="6 Exploiting Domain-Specific Features to Enhance Domain Generalization - NIPS 2021"></a>6 Exploiting Domain-Specific Features to Enhance Domain Generalization - NIPS 2021</h3><p>和之前的方法存在一个很大的区别，就是指出学习domain-specific representation同样重要<br><img src="https://notes.sjtu.edu.cn/uploads/upload_a9f5576ff142610e35c3d01110dc0ed3.png"></p>
-<p><img src="https://notes.sjtu.edu.cn/uploads/upload_3cf2acb0262a7253024803b23d12ffa8.png"></p>
-<p><img src="https://notes.sjtu.edu.cn//uploads/upload_ee935101e3b2f87ec302adcc39241fb0.png"></p>
-<h3 id="7-Reappraising-Domain-Generalization-in-Neural-Netowrks-arXiv-2110-07981"><a href="#7-Reappraising-Domain-Generalization-in-Neural-Netowrks-arXiv-2110-07981" class="headerlink" title="7 Reappraising Domain Generalization in Neural Netowrks - arXiv:2110.07981"></a>7 Reappraising Domain Generalization in Neural Netowrks - arXiv:2110.07981</h3>
+        <h1 id="2021-11-17-近期DG文章汇总"><a href="#2021-11-17-近期DG文章汇总" class="headerlink" title="2021.11.17 近期DG文章汇总"></a>2021.11.17 近期DG文章汇总</h1>
+        
+          <a class="article-more-a" href="/2021/11/19/%E5%8D%9A%E4%B8%89-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/Paper%20report/%E8%BF%91%E6%9C%9FDG%E6%96%87%E7%AB%A0%E6%B1%87%E6%80%BB/#more">more >></a>
+        
       
 
       
